@@ -5,6 +5,9 @@ import config from './config/constants'
 // สร้าง instance express ไว้ในตัวแปร app
 const app = express();
 
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+
 // กำหนด middleware โดยใช้ Path Pattern
 // ทุก request จะต้องมี path ที่ขึ้นต้นด้วย ค่าที่เรา config ไว้ในไฟล์ constants
 app.use(config.prefix, routes);
